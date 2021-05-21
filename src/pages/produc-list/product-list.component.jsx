@@ -1,31 +1,64 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import * as Icons from '../../components/category-menu/icons.component';
+import CategoryIcon from '../../components/category-icon/category-icon.component';
 import CustomSelect from '../../components/custom-select/custom-select.component';
+import ProductItem from '../../components/product-item/product-item.component';
+import Loader from '../../components/loader/loader.component';
 import { connect } from 'react-redux';
-import { selectProductList } from '../../redux/product/product.selectors';
+import {
+  selectProductList,
+  selectProductError,
+} from '../../redux/product/product.selectors';
+import {
+  selectCategoryItem,
+  selectCategoryError,
+} from '../../redux/categoty/category.selectors';
 import { createStructuredSelector } from 'reselect';
+import { fetchProductsStart } from '../../redux/product/product.actions';
+import { fetchCategoryStart } from '../../redux/categoty/category.actions';
 
 const ProductList = (props) => {
+  const [isLoading, setIsLoading] = useState(true);
+  const { category } = props.match.params;
+  useEffect(() => {
+    console.log('wtf ctmr');
+    props.fetchCategory({
+      categoryName: category,
+      callback: () => {
+        props.fetchProducts({
+          category,
+          callback: () => {
+            setIsLoading(false);
+          },
+        });
+      },
+    });
+  }, [category]);
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
   return (
     <div id="shop-list" className="section">
       <div className="container">
         <div className="columns category-header">
           <div className="column main-column is-tablet-landscape-padded">
             <div className="category-title is-product-category">
-              <h2>HOUSE</h2>
+              <h2>{props.category.name}</h2>
               <div className="category-icon is-hidden-mobile">
-                <Icons.Home />
+                <CategoryIcon name={props.category.name} />
               </div>
             </div>
 
             <div className="listing-controls">
               <div className="layout-controls">
-                <a href="products.html">
+                <a>
                   <span className="icon is-medium">
                     <i className="fas fa-x2 fa-th-large"></i>
                   </span>
                 </a>
-                <a href="products-list.html">
+                <a>
                   <span className="icon is-medium">
                     <i className="fas fa-x2 fa-list"></i>
                   </span>
@@ -47,20 +80,32 @@ const ProductList = (props) => {
                 </div>
               </div>
             </div>
-
+            {props.error && (
+              <div className="columns is-product-list is-multiline">
+                <div className="column is-12">
+                  <article className="message is-danger">
+                    <div className="message-body">{props.error}</div>
+                  </article>
+                </div>
+              </div>
+            )}
             <div className="columns is-product-list is-multiline">
               <div className="column is-12">
                 <ul>
-                  {props.productList.slice(0, 8).map((product, idx) => (
-                    <Product key={`product_${idx}`} {...product} />
-                  ))}
+                  {props.productList.map((product, idx) => {
+                    if (category == product.category) {
+                      return (
+                        <ProductItem key={`product_${idx}`} {...product} />
+                      );
+                    }
+                  })}
                 </ul>
               </div>
             </div>
 
-            <div className="show-more">
+            {/* <div className="show-more">
               <a href="#">Show more products</a>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -68,68 +113,16 @@ const ProductList = (props) => {
   );
 };
 
-const Product = (props) => (
-  <li
-    className="flat-card product-container is-auto is-list-item"
-    data-product-id="1"
-    data-product-category="House"
-  >
-    <span className="image">
-      <img src={`https://nephos.cssninja.io/${props.pic}`} alt="" />
-    </span>
-
-    <span className="product-info">
-      <span className="rating">
-        <i className="fas fa-star"></i>
-        <i className="fas fa-star"></i>
-        <i className="fas fa-star"></i>
-        <i className="fas fa-star"></i>
-        <i className="fas fa-star"></i>
-        <small className="is-hidden-mobile">47 Ratings</small>
-      </span>
-
-      <a className="product-details-link" href="product.html">
-        <span className="product-name">{props.name}</span>
-      </a>
-      <span className="product-description">Lorem ipsum sit dolor amet</span>
-      <span className="product-price">
-        <span>{props.price}</span>
-        {props.discounted && (
-          <span className="sale-price">{props.oldPrice}</span>
-        )}
-      </span>
-    </span>
-
-    <span className="product-abstract is-hidden-mobile">
-      This is a well designed and crafted product that will suit many needs, in
-      terms of quality, craftmanship and aesthetics.
-      <span className="view-more">
-        <a className="product-details-link" href="product.html">
-          View more
-          <i className="fas view-more fa-chevron-right"></i>
-        </a>
-      </span>
-    </span>
-
-    <span className="actions">
-      <span className="add icon">
-        <i className="has-simple-popover fas fa-shopping-cart"></i>
-      </span>
-      <span className="like icon">
-        <i className="fas fa-heart"></i>
-      </span>
-    </span>
-
-    {props.discounted && (
-      <div className="on-sale">
-        <i className="has-simple-popover fas fa-dollar-sign"></i>
-      </div>
-    )}
-  </li>
-);
-
 const mapStateToProps = createStructuredSelector({
   productList: selectProductList,
+  error: selectProductError,
+  category: selectCategoryItem,
+  categoryError: selectCategoryError,
 });
 
-export default connect(mapStateToProps)(ProductList);
+const mapDispatchToProps = (dispatch) => ({
+  fetchProducts: (categoryName) => dispatch(fetchProductsStart(categoryName)),
+  fetchCategory: (categoryName) => dispatch(fetchCategoryStart(categoryName)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductList);

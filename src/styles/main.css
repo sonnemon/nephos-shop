@@ -18928,6 +18928,7 @@ textarea.textarea.is-button + .textarea-button button {
   font-size: 0.9rem;
 }
 .product-panel .detailed-description .meta-block p.spaced {
+  white-space: pre-wrap;
   padding-top: 10px;
 }
 .product-panel .detailed-description .meta-block .colored-dots {

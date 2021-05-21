@@ -17,7 +17,7 @@ const CategoryItem = (props) => {
         <div className={`products ${props.positionProduct}`}>
           {props.countProducts} <span>Products</span>
         </div>
-        <Link to={`${props.url}`} className="action">
+        <Link to={`${props.url}/${props.name}`} className="action">
           <span>Discover</span>
           <span className="icon">
             <i className="fas fa-chevron-right"></i>

@@ -1,11 +1,31 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import classNames from 'classnames';
-import * as Icons from '../../components/category-menu/icons.component';
 import CustomSelect from '../../components/custom-select/custom-select.component';
+import Loader from '../../components/loader/loader.component';
+import CategoryIcon from '../../components/category-icon/category-icon.component';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { fetchProductStart } from '../../redux/product/product.actions';
+import { selectProductItem } from '../../redux/product/product.selectors';
+import { createStructuredSelector } from 'reselect';
 
-const ProductDetail = () => {
+const ProductDetail = (props) => {
   const [currentView, setCurrentView] = useState('product-view');
   const [isOpenReviewModal, setIsOpenReviewModal] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    props.fetchProduct({
+      productId: props.match.params.productId,
+      callback: () => {
+        setIsLoading(false);
+      },
+    });
+  }, [props.match.params.productId]);
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
   return (
     <>
       <div className="product-panel">
@@ -19,15 +39,14 @@ const ProductDetail = () => {
         </div>
 
         <div
-          class={classNames('product-image translateLeft', {
+          className={classNames('product-image translateLeft', {
             'is-hidden': currentView != 'product-view',
           })}
         >
           <div className="is-carousel">
             <div>
               <img
-                // src="http://via.placeholder.com/500x500/ffffff/999999"
-                src="https://nephos.cssninja.io/assets/img/products/red-seat.png"
+                src={`https://nephos.cssninja.io/${props.product.pic}`}
                 data-demo-src="assets/img/products/red-seat.png"
                 data-action="zoom"
                 alt=""
@@ -37,23 +56,23 @@ const ProductDetail = () => {
         </div>
 
         <div
-          class={classNames('translateLeft', {
+          className={classNames('translateLeft', {
             'is-hidden': currentView != 'meta-view',
           })}
         >
           <div className="detailed-description">
             <div className="meta-block">
               <h3>Product name</h3>
-              <p id="panel-product-name">Red Seat</p>
+              <p>{props.product.name}</p>
             </div>
             <div className="meta-block">
               <h3>Product SKU</h3>
-              <p id="panel-product-sku">W589</p>
+              <p>{props.product.sku}</p>
             </div>
 
             <div className="meta-block">
               <h3>Vendor</h3>
-              <p id="panel-product-vendor">Govo</p>
+              <p>{props.product.vendor}</p>
             </div>
 
             <div className="meta-block is-hidden">
@@ -76,45 +95,33 @@ const ProductDetail = () => {
 
             <div className="meta-block">
               <h3 className="spaced">Description</h3>
-              <p className="spaced">
-                Lorem ipsum dolor sit amet, tale solet volutpat an his, mutat
-                aliquando sed te. Dico affert sensibus sed eu, quo nibh minimum
-                voluptua ut. Te cibo vituperata usu, diam timeam sensibus qui
-                ut. Quo mazim scripta labores cu, sit no quaeque electram. Per
-                at volumus eleifend suscipiantur. Ad mea viderer suscipiantur.
-              </p>
-              <p className="spaced">
-                Solum movet salutatus ne has, nec probo suavitate urbanitas in.
-                Volumus vulputate eos an, vix iusto ornatus mediocritatem ex. Ad
-                pri mutat paulo inermis, at usu persius copiosae. Timeam
-                democritum eloquentiam vim an.
-              </p>
+              <p className="spaced">{props.product.longDesc}</p>
             </div>
 
             <div className="meta-block">
               <h3>Availability</h3>
-              <p id="panel-product-availability">Available</p>
+              <p>Available</p>
             </div>
 
             <div className="meta-block">
               <h3>Dimensions</h3>
-              <p id="panel-product-dimensions">4” x 4” x 8"</p>
+              <p>{props.product.dimensions}</p>
             </div>
 
             <div className="meta-block">
               <h3>Weight</h3>
-              <p id="panel-product-weight">6.77 Lbs</p>
+              <p>{props.product.weight}</p>
             </div>
 
             <div className="meta-block">
               <h3>Shipping Delay</h3>
-              <p id="panel-product-shipping-delay">2 weeks</p>
+              <p>{props.product.shippingTime}</p>
             </div>
           </div>
         </div>
 
         <div
-          class={classNames('translateLeft', {
+          className={classNames('translateLeft', {
             'is-hidden': currentView != 'rating-view',
           })}
         >
@@ -390,7 +397,7 @@ const ProductDetail = () => {
           <div className="right-actions">
             <span
               onClick={() => setCurrentView('product-view')}
-              class={classNames('icon product-action', {
+              className={classNames('icon product-action', {
                 'is-active': 'product-view' == currentView,
               })}
             >
@@ -399,7 +406,7 @@ const ProductDetail = () => {
 
             <span
               onClick={() => setCurrentView('meta-view')}
-              class={classNames('icon product-action', {
+              className={classNames('icon product-action', {
                 'is-active': 'meta-view' == currentView,
               })}
             >
@@ -408,7 +415,7 @@ const ProductDetail = () => {
 
             <span
               onClick={() => setCurrentView('rating-view')}
-              class={classNames('icon product-action', {
+              className={classNames('icon product-action', {
                 'is-active': 'rating-view' == currentView,
               })}
             >
@@ -422,31 +429,27 @@ const ProductDetail = () => {
         <div className="inner-panel">
           <div className="panel-header">
             <div className="category-title">
-              <div id="office-icon" className="category-icon">
-                <Icons.Office />
+              <div className="category-icon">
+                <CategoryIcon name={props.product.categoryItem.name} />
               </div>
-              <h2 id="product-category">Office</h2>
+              <h2>{props.product.categoryItem.name}</h2>
             </div>
           </div>
 
           <div className="panel-body">
             <h3 className="product-name">
-              <var id="product-details-name">Red Seat</var>{' '}
-              <span id="product-details-sku">SKU-W589</span>
+              <var>{props.product.name}</var> <span>{props.product.sku}</span>
             </h3>
-            <p id="product-details-shortDesc" className="product-description">
-              This seat is nicely and will fit perfectly in your living room.
-              Lorem ipsum sit dolor amet. Consecteture adipscing elit. Ut
-              fermentum interdum malesuada. Sed ornare posuere lobortis. Lasis
-              Ut fermentum interdum malesuada sed ornare
-            </p>
+            <p className="product-description">{props.product.shortDesc}</p>
 
             <div className="product-controls">
               <div className="product-price">
                 <div className="heading">Price</div>
                 <div className="value">
-                  <span id="new-price">65.00</span>
-                  <span id="old-price">90.00</span>
+                  <span>{props.product.price}</span>
+                  {props.product.price < props.product.oldPrice && (
+                    <span>{props.product.oldPrice}</span>
+                  )}
                 </div>
               </div>
               <div className="size-box-wrap">
@@ -470,6 +473,7 @@ const ProductDetail = () => {
                 <div className="heading">Quantity</div>
                 <div data-trigger="spinner" className="details-spinner">
                   <input
+                    readOnly
                     className="hidden-spinner"
                     type="hidden"
                     value="1"
@@ -478,37 +482,31 @@ const ProductDetail = () => {
                     data-min="1"
                     data-max="99"
                   />
-                  <a
-                    className="spinner-button is-remove"
-                    href="javascript:;"
-                    data-spin="down"
-                  >
+                  <a className="spinner-button is-remove" data-spin="down">
                     <span className="icon">
                       <i className="fas fa-minus"></i>
                     </span>
                   </a>
                   <span className="spinner-value">1</span>
-                  <a
-                    className="spinner-button is-add"
-                    href="javascript:;"
-                    data-spin="up"
-                  >
+                  <a className="spinner-button is-add" data-spin="up">
                     <span className="icon">
                       <i className="fas fa-plus"></i>
                     </span>
                   </a>
                 </div>
                 <div className="control is-hidden">
-                  <input className="input is-rounded" type="number" value="1" />
+                  <input
+                    readOnly
+                    className="input is-rounded"
+                    type="number"
+                    value="1"
+                  />
                 </div>
               </div>
 
               <div className="add-to-cart">
                 <div className="heading is-vhidden">Add to cart</div>
-                <button
-                  id="details-add-to-cart"
-                  className="button big-button cart-button primary-button upper-button rounded is-bold raised"
-                >
+                <button className="button big-button cart-button primary-button upper-button rounded is-bold raised">
                   Add to cart
                 </button>
               </div>
@@ -519,68 +517,31 @@ const ProductDetail = () => {
             <div className="footer-inner">
               <div className="recommended">Recommended</div>
 
-              <div id="related-products" className="columns has-text-centered">
+              <div className="columns has-text-centered">
                 <div className="column"></div>
 
-                <div className="column is-3">
-                  <div id="related-product-0" className="featured-product">
-                    <div className="image">
-                      <img
-                        src="http://via.placeholder.com/250x250"
-                        data-demo-src="assets/img/products/dark-seat.jpg"
-                        alt=""
-                      />
-                    </div>
-                    <div className="product-info has-text-centered">
-                      <a className="product-details-link" href="#">
-                        <h3 className="product-name">Dark seat</h3>
-                      </a>
-                      <p className="product-description">
-                        Lorem ipsum sit dolor amet
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="column is-3">
-                  <div id="related-product-1" className="featured-product">
-                    <div className="image">
-                      <img
-                        src="http://via.placeholder.com/250x250"
-                        data-demo-src="assets/img/products/blue-seat.png"
-                        alt=""
-                      />
-                    </div>
-                    <div className="product-info has-text-centered">
-                      <a className="product-details-link" href="#">
-                        <h3 className="product-name">Blue seat</h3>
-                      </a>
-                      <p className="product-description">
-                        Lorem ipsum sit dolor amet
-                      </p>
+                {props.product.relatedItems.map((product, idx) => (
+                  <div key={`product_related_${idx}`} className="column is-3">
+                    <div className="featured-product">
+                      <div className="image">
+                        <img
+                          src={`https://nephos.cssninja.io/${product.pic}`}
+                          data-demo-src="assets/img/products/dark-seat.jpg"
+                          alt=""
+                        />
+                      </div>
+                      <div className="product-info has-text-centered">
+                        <Link
+                          to={`/product/${product.id}`}
+                          className="product-details-link"
+                        >
+                          <h3 className="product-name">{product.name}</h3>
+                        </Link>
+                        <p className="product-description">{product.tagline}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-
-                <div className="column is-3">
-                  <div id="related-product-2" className="featured-product">
-                    <div className="image">
-                      <img
-                        src="http://via.placeholder.com/250x250"
-                        data-demo-src="assets/img/products/red-seat.png"
-                        alt=""
-                      />
-                    </div>
-                    <div className="product-info has-text-centered">
-                      <a className="product-details-link" href="#">
-                        <h3 className="product-name">Red seat</h3>
-                      </a>
-                      <p className="product-description">
-                        Lorem ipsum sit dolor amet
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                ))}
 
                 <div className="column"></div>
               </div>
@@ -591,7 +552,7 @@ const ProductDetail = () => {
 
       <div
         id="review-modal"
-        class={classNames('modal review-modal', {
+        className={classNames('modal review-modal', {
           'is-active': isOpenReviewModal,
         })}
       >
@@ -610,13 +571,20 @@ const ProductDetail = () => {
             </div>
             <div className="box-body">
               <fieldset className="rating">
-                <input type="radio" id="star5" name="rating" value="5" />
+                <input
+                  readOnly
+                  type="radio"
+                  id="star5"
+                  name="rating"
+                  value="5"
+                />
                 <label
                   className="full"
-                  for="star5"
+                  htmlFor="star5"
                   title="Awesome - 5 stars"
                 ></label>
                 <input
+                  readOnly
                   type="radio"
                   id="star4half"
                   name="rating"
@@ -624,16 +592,23 @@ const ProductDetail = () => {
                 />
                 <label
                   className="half"
-                  for="star4half"
+                  htmlFor="star4half"
                   title="Great - 4.5 stars"
                 ></label>
-                <input type="radio" id="star4" name="rating" value="4" />
+                <input
+                  readOnly
+                  type="radio"
+                  id="star4"
+                  name="rating"
+                  value="4"
+                />
                 <label
                   className="full"
-                  for="star4"
+                  htmlFor="star4"
                   title="Very good - 4 stars"
                 ></label>
                 <input
+                  readOnly
                   type="radio"
                   id="star3half"
                   name="rating"
@@ -641,16 +616,23 @@ const ProductDetail = () => {
                 />
                 <label
                   className="half"
-                  for="star3half"
+                  htmlFor="star3half"
                   title="Pretty good - 3.5 stars"
                 ></label>
-                <input type="radio" id="star3" name="rating" value="3" />
+                <input
+                  readOnly
+                  type="radio"
+                  id="star3"
+                  name="rating"
+                  value="3"
+                />
                 <label
                   className="full"
-                  for="star3"
+                  htmlFor="star3"
                   title="Good - 3 stars"
                 ></label>
                 <input
+                  readOnly
                   type="radio"
                   id="star2half"
                   name="rating"
@@ -658,16 +640,23 @@ const ProductDetail = () => {
                 />
                 <label
                   className="half"
-                  for="star2half"
+                  htmlFor="star2half"
                   title="Average - 2.5 stars"
                 ></label>
-                <input type="radio" id="star2" name="rating" value="2" />
+                <input
+                  readOnly
+                  type="radio"
+                  id="star2"
+                  name="rating"
+                  value="2"
+                />
                 <label
                   className="full"
-                  for="star2"
+                  htmlFor="star2"
                   title="Mediocre - 2 stars"
                 ></label>
                 <input
+                  readOnly
                   type="radio"
                   id="star1half"
                   name="rating"
@@ -675,19 +664,31 @@ const ProductDetail = () => {
                 />
                 <label
                   className="half"
-                  for="star1half"
+                  htmlFor="star1half"
                   title="Weak - 1.5 stars"
                 ></label>
-                <input type="radio" id="star1" name="rating" value="1" />
+                <input
+                  readOnly
+                  type="radio"
+                  id="star1"
+                  name="rating"
+                  value="1"
+                />
                 <label
                   className="full"
-                  for="star1"
+                  htmlFor="star1"
                   title="Bad - 1 star"
                 ></label>
-                <input type="radio" id="starhalf" name="rating" value="half" />
+                <input
+                  readOnly
+                  type="radio"
+                  id="starhalf"
+                  name="rating"
+                  value="half"
+                />
                 <label
                   className="half"
-                  for="starhalf"
+                  htmlFor="starhalf"
                   title="Terrible - 0.5 stars"
                 ></label>
               </fieldset>
@@ -710,4 +711,13 @@ const ProductDetail = () => {
     </>
   );
 };
-export default ProductDetail;
+
+const mapStateToProps = createStructuredSelector({
+  product: selectProductItem,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  fetchProduct: (payload) => dispatch(fetchProductStart(payload)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductDetail);

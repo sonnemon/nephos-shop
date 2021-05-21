@@ -4,5 +4,15 @@ const selectProduct = (state) => state.product;
 
 export const selectProductList = createSelector(
   [selectProduct],
-  (product) => product.productList
+  (product) => product.list
+);
+
+export const selectProductError = createSelector(
+  [selectProduct],
+  (product) => product.error
+);
+
+export const selectProductItem = createSelector(
+  [selectProduct],
+  (product) => product.item
 );

@@ -1,11 +1,24 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import CategoryItem from '../../components/category-item/category-item.component';
+import Loader from '../../components/loader/loader.component';
 import backtitle from '../../images/logo/nephos-greyscale.svg';
 import { connect } from 'react-redux';
-import { selectCategoryList } from '../../redux/categoty/category.selectos';
+import { fetchCategoriesStart } from '../../redux/categoty/category.actions';
+import { selectCategoryList } from '../../redux/categoty/category.selectors';
 import { createStructuredSelector } from 'reselect';
 
 const CategoryPage = (props) => {
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    props.fetchCategories({
+      callback: () => {
+        setIsLoading(false);
+      },
+    });
+  }, []);
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <div className="section">
       <div className="container">
@@ -20,19 +33,19 @@ const CategoryPage = (props) => {
                 <div className="tile is-vertical is-8">
                   <div className="tile">
                     <div className="tile is-parent is-vertical">
-                      <CategoryItem {...props.categoryList['accesories']} />
-                      <CategoryItem {...props.categoryList['kitchen']} />
+                      <CategoryItem {...props.categoryList[2]} />
+                      <CategoryItem {...props.categoryList[3]} />
                     </div>
                     <div className="tile is-parent">
-                      <CategoryItem {...props.categoryList['house']} />
+                      <CategoryItem {...props.categoryList[4]} />
                     </div>
                   </div>
                   <div className="tile is-parent">
-                    <CategoryItem {...props.categoryList['for_kids']} />
+                    <CategoryItem {...props.categoryList[1]} />
                   </div>
                 </div>
                 <div className="tile is-parent">
-                  <CategoryItem {...props.categoryList['office']} />
+                  <CategoryItem {...props.categoryList[0]} />
                 </div>
               </div>
             </div>
@@ -47,4 +60,8 @@ const mapStateToProps = createStructuredSelector({
   categoryList: selectCategoryList,
 });
 
-export default connect(mapStateToProps)(CategoryPage);
+const mapDispatchToProps = (dispatch) => ({
+  fetchCategories: (payload) => dispatch(fetchCategoriesStart(payload)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(CategoryPage);

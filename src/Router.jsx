@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import Home from './pages/home/home.component';
 import CategoryPage from './pages/category-page/category-page.component';
@@ -14,15 +14,12 @@ import { createStructuredSelector } from 'reselect';
 import { selectCurrentUser } from './redux/user/user.selectors';
 
 const Router = (props) => {
-  // useState(() => {
-  //   console.log('xDDD');
-  // }, []);
   return (
     <Switch>
       <Route path="/" component={Home} exact />
       <Route path="/category" component={CategoryPage} exact />
-      <Route path="/products" component={ProductList} exact />
-      <Route path="/product" component={ProductDetail} exact />
+      <Route path="/products/:category" component={ProductList} exact />
+      <Route path="/product/:productId" component={ProductDetail} exact />
       <Route
         path="/authentication"
         exact
