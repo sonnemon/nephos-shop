@@ -3,7 +3,7 @@ export default [
     id: 1,
     name: 'Red Seat',
     category: 'House',
-    pic: 'assets/img/products/cosy-red-seat.png',
+    pic: 'https://i.postimg.cc/gjJvtX0N/cosy-red-seat.png',
     discounted: false,
     price: 45.0,
     oldPrice: 45.0,
@@ -15,7 +15,7 @@ export default [
     images: [
       {
         id: 0,
-        url: 'assets/img/products/red-seat.png',
+        url: 'https://i.postimg.cc/gjJvtX0N/cosy-red-seat.png',
       },
     ],
     vendor: "Brook's",
@@ -40,7 +40,7 @@ export default [
     id: 3,
     name: 'White Table',
     category: 'House',
-    pic: 'assets/img/products/modern-table.png',
+    pic: 'https://i.postimg.cc/Gt5vWL8r/modern-table.png',
     discounted: false,
     price: 350.49,
     oldPrice: 350.49,
@@ -52,7 +52,7 @@ export default [
     images: [
       {
         id: 0,
-        url: 'assets/img/products/modern-table.png',
+        url: 'https://i.postimg.cc/Gt5vWL8r/modern-table.png',
       },
     ],
     vendor: 'Globe Furniture',
@@ -77,7 +77,7 @@ export default [
     id: 4,
     name: 'Blue Seat',
     category: 'House',
-    pic: 'assets/img/products/blue-seat.png',
+    pic: 'https://i.postimg.cc/dQHRkBWX/blue-seat.png',
     discounted: false,
     price: 35.0,
     oldPrice: 35.0,
@@ -89,7 +89,7 @@ export default [
     images: [
       {
         id: 0,
-        url: 'assets/img/products/blue-seat.png',
+        url: 'https://i.postimg.cc/dQHRkBWX/blue-seat.png',
       },
     ],
     vendor: "Brook's",
@@ -114,7 +114,7 @@ export default [
     id: 5,
     name: 'Modern Bed',
     category: 'House',
-    pic: 'assets/img/products/modern-bed.jpg',
+    pic: 'https://i.postimg.cc/wT1XhmZB/modern-bed.jpg',
     discounted: true,
     price: 120.99,
     oldPrice: 299.99,
@@ -126,7 +126,7 @@ export default [
     images: [
       {
         id: 0,
-        url: 'assets/img/products/modern-bed.jpg',
+        url: 'https://i.postimg.cc/wT1XhmZB/modern-bed.jpg',
       },
     ],
     vendor: 'Globe Furniture',
@@ -151,7 +151,7 @@ export default [
     id: 6,
     name: 'Dark Seat',
     category: 'House',
-    pic: 'assets/img/products/dark-seat.jpg',
+    pic: 'https://i.postimg.cc/4Njzw3RQ/dark-seat.jpg',
     discounted: true,
     price: 50.25,
     oldPrice: 79.25,
@@ -163,7 +163,7 @@ export default [
     images: [
       {
         id: 0,
-        url: 'assets/img/products/dark-seat.jpg',
+        url: 'https://i.postimg.cc/4Njzw3RQ/dark-seat.jpg',
       },
     ],
     vendor: "Brook's",
@@ -188,7 +188,7 @@ export default [
     id: 7,
     name: 'TV Furniture',
     category: 'House',
-    pic: 'assets/img/products/house1.png',
+    pic: 'https://i.postimg.cc/nh7qWtHb/house1.png',
     discounted: false,
     price: 430.0,
     oldPrice: 430.0,
@@ -200,7 +200,7 @@ export default [
     images: [
       {
         id: 0,
-        url: 'assets/img/products/house1.png',
+        url: 'https://i.postimg.cc/nh7qWtHb/house1.png',
       },
     ],
     vendor: 'Bobby Living',
@@ -225,7 +225,7 @@ export default [
     id: 8,
     name: 'Cabinet',
     category: 'House',
-    pic: 'assets/img/products/house2.jpg',
+    pic: 'https://i.postimg.cc/VN8XQH6S/house2.jpg',
     discounted: false,
     price: 430.0,
     oldPrice: 430.0,
@@ -237,7 +237,7 @@ export default [
     images: [
       {
         id: 0,
-        url: 'assets/img/products/house2.jpg',
+        url: 'https://i.postimg.cc/VN8XQH6S/house2.jpg',
       },
     ],
     vendor: 'Bobby Living',
@@ -262,7 +262,7 @@ export default [
     id: 9,
     name: 'Imperator',
     category: 'Office',
-    pic: 'assets/img/products/office3.jpg',
+    pic: 'https://i.postimg.cc/Ls3LHBYx/office3.jpg',
     discounted: true,
     price: 490.0,
     oldPrice: 699.99,
@@ -274,7 +274,7 @@ export default [
     images: [
       {
         id: 0,
-        url: 'assets/img/products/office3.jpg',
+        url: 'https://i.postimg.cc/Ls3LHBYx/office3.jpg',
       },
     ],
     vendor: "Brook's",
@@ -299,7 +299,7 @@ export default [
     id: 10,
     name: 'Roller',
     category: 'Office',
-    pic: 'assets/img/products/office1.jpg',
+    pic: 'https://i.postimg.cc/fLWXktYD/office1.webp',
     discounted: false,
     price: 75.0,
     oldPrice: 75.0,
@@ -311,7 +311,7 @@ export default [
     images: [
       {
         id: 0,
-        url: 'assets/img/products/office1.jpg',
+        url: 'https://i.postimg.cc/fLWXktYD/office1.webp',
       },
     ],
     vendor: 'Furnimod',
@@ -336,7 +336,7 @@ export default [
     id: 11,
     name: 'Executive',
     category: 'Office',
-    pic: 'assets/img/products/office4.jpg',
+    pic: 'https://i.postimg.cc/NMNXXsxT/office4.jpg',
     discounted: false,
     price: 125.0,
     oldPrice: 125.0,
@@ -348,7 +348,7 @@ export default [
     images: [
       {
         id: 0,
-        url: 'assets/img/products/office4.jpg',
+        url: 'https://i.postimg.cc/NMNXXsxT/office4.jpg',
       },
     ],
     vendor: 'Furnimod',
@@ -373,7 +373,7 @@ export default [
     id: 12,
     name: 'Cosy Chair',
     category: 'Office',
-    pic: 'assets/img/products/office5.jpg',
+    pic: 'https://i.postimg.cc/C5zqH3v2/office5.jpg',
     discounted: true,
     price: 88.49,
     oldPrice: 119.99,
@@ -385,7 +385,7 @@ export default [
     images: [
       {
         id: 0,
-        url: 'assets/img/products/office5.jpg',
+        url: 'https://i.postimg.cc/C5zqH3v2/office5.jpg',
       },
     ],
     vendor: 'Furnimod',
@@ -410,7 +410,7 @@ export default [
     id: 13,
     name: 'Ambassador',
     category: 'Office',
-    pic: 'assets/img/products/office9.png',
+    pic: 'https://i.postimg.cc/5yTFPsT2/office9.png',
     discounted: false,
     price: 480.0,
     oldPrice: 480.0,
@@ -422,7 +422,7 @@ export default [
     images: [
       {
         id: 0,
-        url: 'assets/img/products/office9.png',
+        url: 'https://i.postimg.cc/5yTFPsT2/office9.png',
       },
     ],
     vendor: "Brook's",
@@ -447,7 +447,7 @@ export default [
     id: 14,
     name: 'Conqueror',
     category: 'Office',
-    pic: 'assets/img/products/office6.png',
+    pic: 'https://i.postimg.cc/Y2sgqS0B/office6.png',
     discounted: false,
     price: 590.0,
     oldPrice: 590.0,
@@ -459,7 +459,7 @@ export default [
     images: [
       {
         id: 0,
-        url: 'assets/img/products/office6.png',
+        url: 'https://i.postimg.cc/Y2sgqS0B/office6.png',
       },
     ],
     vendor: "Brook's",
@@ -484,7 +484,7 @@ export default [
     id: 15,
     name: 'Gentleman',
     category: 'Office',
-    pic: 'assets/img/products/office7.gif',
+    pic: 'https://i.postimg.cc/FskSfQkd/office7.gif',
     discounted: false,
     price: 375.0,
     oldPrice: 375.0,
@@ -496,7 +496,7 @@ export default [
     images: [
       {
         id: 0,
-        url: 'assets/img/products/office7.gif',
+        url: 'https://i.postimg.cc/FskSfQkd/office7.gif',
       },
     ],
     vendor: "Brook's",
@@ -521,7 +521,7 @@ export default [
     id: 16,
     name: 'Tabouret',
     category: 'For Kids',
-    pic: 'assets/img/products/kids1.jpg',
+    pic: 'https://i.postimg.cc/nh8DBwqd/kids1.jpg',
     discounted: false,
     price: 22.0,
     oldPrice: 22.0,
@@ -533,7 +533,7 @@ export default [
     images: [
       {
         id: 0,
-        url: 'assets/img/products/kids1.jpg',
+        url: 'https://i.postimg.cc/nh8DBwqd/kids1.jpg',
       },
     ],
     vendor: "Kid's Valley",
@@ -558,7 +558,7 @@ export default [
     id: 17,
     name: 'Rabbit Lamp',
     category: 'For Kids',
-    pic: 'assets/img/products/kids2.jpg',
+    pic: 'https://i.postimg.cc/P5m84z4d/kids2.jpg',
     discounted: false,
     price: 14.49,
     oldPrice: 14.49,
@@ -570,7 +570,7 @@ export default [
     images: [
       {
         id: 0,
-        url: 'assets/img/products/kids2.jpg',
+        url: 'https://i.postimg.cc/P5m84z4d/kids2.jpg',
       },
     ],
     vendor: "Kid's Valley",
@@ -595,7 +595,7 @@ export default [
     id: 18,
     name: 'White Bed',
     category: 'For Kids',
-    pic: 'assets/img/products/kids3.png',
+    pic: 'https://i.postimg.cc/1zsVYnCw/kids3.png',
     discounted: false,
     price: 375.0,
     oldPrice: 375.0,
@@ -607,7 +607,7 @@ export default [
     images: [
       {
         id: 0,
-        url: 'assets/img/products/kids3.png',
+        url: 'https://i.postimg.cc/1zsVYnCw/kids3.png',
       },
     ],
     vendor: "Kid's Valley",
@@ -632,7 +632,7 @@ export default [
     id: 19,
     name: 'Toy Boxes',
     category: 'For Kids',
-    pic: 'assets/img/products/kids4.jpg',
+    pic: 'https://i.postimg.cc/LsDgd9w7/kids4.jpg',
     discounted: false,
     price: 80.0,
     oldPrice: 80.0,
@@ -644,7 +644,7 @@ export default [
     images: [
       {
         id: 0,
-        url: 'assets/img/products/kids4.jpg',
+        url: 'https://i.postimg.cc/LsDgd9w7/kids4.jpg',
       },
     ],
     vendor: "Kid's Valley",
@@ -669,7 +669,7 @@ export default [
     id: 20,
     name: 'Treasure Chest',
     category: 'For Kids',
-    pic: 'assets/img/products/kids5.jpg',
+    pic: 'https://i.postimg.cc/gJBwJMYH/kids5.jpg',
     discounted: true,
     price: 185.0,
     oldPrice: 215.0,
@@ -681,7 +681,7 @@ export default [
     images: [
       {
         id: 0,
-        url: 'assets/img/products/kids5.jpg',
+        url: 'https://i.postimg.cc/gJBwJMYH/kids5.jpg',
       },
     ],
     vendor: "Kid's Valley",
@@ -706,7 +706,7 @@ export default [
     id: 21,
     name: 'Child Desk',
     category: 'For Kids',
-    pic: 'assets/img/products/kids7.jpg',
+    pic: 'https://i.postimg.cc/D0JSbq0k/kids7.jpg',
     discounted: true,
     price: 185.0,
     oldPrice: 215.0,
@@ -718,7 +718,7 @@ export default [
     images: [
       {
         id: 0,
-        url: 'assets/img/products/kids7.jpg',
+        url: 'https://i.postimg.cc/D0JSbq0k/kids7.jpg',
       },
     ],
     vendor: "Kid's Valley",
@@ -743,7 +743,7 @@ export default [
     id: 22,
     name: 'Animals Set',
     category: 'For Kids',
-    pic: 'assets/img/products/kids6.jpg',
+    pic: 'https://i.postimg.cc/yxMkhk3J/kids6.jpg',
     discounted: false,
     price: 23.49,
     oldPrice: 23.49,
@@ -755,7 +755,7 @@ export default [
     images: [
       {
         id: 0,
-        url: 'assets/img/products/kids6.jpg',
+        url: 'https://i.postimg.cc/yxMkhk3J/kids6.jpg',
       },
     ],
     vendor: "Kid's Valley",
@@ -780,7 +780,7 @@ export default [
     id: 23,
     name: 'Wood Elephant',
     category: 'For Kids',
-    pic: 'assets/img/products/kids6.jpg',
+    pic: 'https://i.postimg.cc/yxMkhk3J/kids6.jpg',
     discounted: false,
     price: 57.99,
     oldPrice: 57.99,
@@ -792,7 +792,7 @@ export default [
     images: [
       {
         id: 0,
-        url: 'assets/img/products/kids6.jpg',
+        url: 'https://i.postimg.cc/yxMkhk3J/kids6.jpg',
       },
     ],
     vendor: "Kid's Valley",
@@ -817,7 +817,7 @@ export default [
     id: 24,
     name: 'Chromed Sink',
     category: 'Kitchen',
-    pic: 'assets/img/products/kitchen.png',
+    pic: 'https://i.postimg.cc/ry302YZ8/kitchen.png',
     discounted: false,
     price: 142.0,
     oldPrice: 142.0,
@@ -829,7 +829,7 @@ export default [
     images: [
       {
         id: 0,
-        url: 'assets/img/products/kitchen.png',
+        url: 'https://i.postimg.cc/ry302YZ8/kitchen.png',
       },
     ],
     vendor: 'Valimar',
@@ -854,7 +854,7 @@ export default [
     id: 25,
     name: 'Mini Kitchen',
     category: 'Kitchen',
-    pic: 'assets/img/products/kitchen3.png',
+    pic: 'https://i.postimg.cc/dtC7smgG/kitchen3.png',
     discounted: false,
     price: 142.0,
     oldPrice: 142.0,
@@ -866,7 +866,7 @@ export default [
     images: [
       {
         id: 0,
-        url: 'assets/img/products/kitchen3.png',
+        url: 'https://i.postimg.cc/dtC7smgG/kitchen3.png',
       },
     ],
     vendor: 'Valimar',
@@ -891,7 +891,7 @@ export default [
     id: 26,
     name: 'Auto Toaster',
     category: 'Kitchen',
-    pic: 'assets/img/products/kitchen2.jpg',
+    pic: 'https://i.postimg.cc/CxVRznVX/kitchen2.jpg',
     discounted: false,
     price: 63.0,
     oldPrice: 63.0,
@@ -903,7 +903,7 @@ export default [
     images: [
       {
         id: 0,
-        url: 'assets/img/products/kitchen2.jpg',
+        url: 'https://i.postimg.cc/CxVRznVX/kitchen2.jpg',
       },
     ],
     vendor: 'Govo',
@@ -928,7 +928,7 @@ export default [
     id: 27,
     name: 'Modern Fridge',
     category: 'Kitchen',
-    pic: 'assets/img/products/kitchen4.jpg',
+    pic: 'https://i.postimg.cc/CxHzDMh1/kitchen4.jpg',
     discounted: false,
     price: 675.0,
     oldPrice: 675.0,
@@ -940,7 +940,7 @@ export default [
     images: [
       {
         id: 0,
-        url: 'assets/img/products/kitchen4.jpg',
+        url: 'https://i.postimg.cc/CxHzDMh1/kitchen4.jpg',
       },
     ],
     vendor: 'Govo',
@@ -965,7 +965,7 @@ export default [
     id: 28,
     name: 'Coffee Maker',
     category: 'Kitchen',
-    pic: 'assets/img/products/kitchen5.jpg',
+    pic: 'https://i.postimg.cc/43fn1Cy1/kitchen5.png',
     discounted: false,
     price: 178.0,
     oldPrice: 178.0,
@@ -977,7 +977,7 @@ export default [
     images: [
       {
         id: 0,
-        url: 'assets/img/products/kitchen5.jpg',
+        url: 'https://i.postimg.cc/43fn1Cy1/kitchen5.png',
       },
     ],
     vendor: 'Govo',
@@ -1002,7 +1002,7 @@ export default [
     id: 29,
     name: 'Styled Lamp',
     category: 'Accessories',
-    pic: 'assets/img/products/access1.jpg',
+    pic: 'https://i.postimg.cc/cJFC9D8G/access1.jpg',
     discounted: false,
     price: 178.0,
     oldPrice: 178.0,
@@ -1014,7 +1014,7 @@ export default [
     images: [
       {
         id: 0,
-        url: 'assets/img/products/access1.jpg',
+        url: 'https://i.postimg.cc/cJFC9D8G/access1.jpg',
       },
     ],
     vendor: 'Houseo',
@@ -1039,7 +1039,7 @@ export default [
     id: 30,
     name: 'Golden Lamp',
     category: 'Accessories',
-    pic: 'assets/img/products/access2.jpg',
+    pic: 'https://i.postimg.cc/zB3B9nnb/access2.jpg',
     discounted: false,
     price: 178.0,
     oldPrice: 178.0,
@@ -1051,7 +1051,7 @@ export default [
     images: [
       {
         id: 0,
-        url: 'assets/img/products/access2.jpg',
+        url: 'https://i.postimg.cc/zB3B9nnb/access2.jpg',
       },
     ],
     vendor: 'Houseo',
@@ -1076,7 +1076,7 @@ export default [
     id: 31,
     name: 'Aquarium',
     category: 'Accessories',
-    pic: 'assets/img/products/access3.jpg',
+    pic: 'https://i.postimg.cc/vTVmmb2G/access3.jpg',
     discounted: false,
     price: 235.0,
     oldPrice: 235.0,
@@ -1088,7 +1088,7 @@ export default [
     images: [
       {
         id: 0,
-        url: 'assets/img/products/access3.jpg',
+        url: 'https://i.postimg.cc/vTVmmb2G/access3.jpg',
       },
     ],
     vendor: 'Houseo',
@@ -1113,7 +1113,7 @@ export default [
     id: 32,
     name: 'Design Shelf',
     category: 'Accessories',
-    pic: 'assets/img/products/access4.jpg',
+    pic: 'https://i.postimg.cc/XX6YGmtd/access4.jpg',
     discounted: true,
     price: 510.0,
     oldPrice: 629.0,
@@ -1125,7 +1125,7 @@ export default [
     images: [
       {
         id: 0,
-        url: 'assets/img/products/access4.jpg',
+        url: 'https://i.postimg.cc/XX6YGmtd/access4.jpg',
       },
     ],
     vendor: 'Govo',
@@ -1150,7 +1150,7 @@ export default [
     id: 33,
     name: 'Ground Shelf',
     category: 'Accessories',
-    pic: 'assets/img/products/access5.jpg',
+    pic: 'https://i.postimg.cc/05bc9jx7/access5.jpg',
     discounted: false,
     price: 80.0,
     oldPrice: 80.0,
@@ -1162,7 +1162,7 @@ export default [
     images: [
       {
         id: 0,
-        url: 'assets/img/products/access5.jpg',
+        url: 'https://i.postimg.cc/05bc9jx7/access5.jpg',
       },
     ],
     vendor: 'Govo',
@@ -1187,7 +1187,7 @@ export default [
     id: 34,
     name: 'Modern Cabinet',
     category: 'Accessories',
-    pic: 'assets/img/products/access6.jpg',
+    pic: 'https://i.postimg.cc/mZJVk42J/access6.jpg',
     discounted: false,
     price: 265.0,
     oldPrice: 265.0,
@@ -1199,7 +1199,7 @@ export default [
     images: [
       {
         id: 0,
-        url: 'assets/img/products/access6.jpg',
+        url: 'https://i.postimg.cc/mZJVk42J/access6.jpg',
       },
     ],
     vendor: 'Govo',
@@ -1224,7 +1224,7 @@ export default [
     id: 35,
     name: 'Ground Speakers',
     category: 'Accessories',
-    pic: 'assets/img/products/access8.jpg',
+    pic: 'https://i.postimg.cc/YqFRmPv9/access8.jpg',
     discounted: false,
     price: 99.0,
     oldPrice: 99.0,
@@ -1236,7 +1236,7 @@ export default [
     images: [
       {
         id: 0,
-        url: 'assets/img/products/access8.jpg',
+        url: 'https://i.postimg.cc/YqFRmPv9/access8.jpg',
       },
     ],
     vendor: 'Govo',
@@ -1261,7 +1261,7 @@ export default [
     id: 36,
     name: 'Modern Speakers',
     category: 'Accessories',
-    pic: 'assets/img/products/access7.jpg',
+    pic: 'https://i.postimg.cc/FHQZbxSx/access7.jpg',
     discounted: false,
     price: 175.0,
     oldPrice: 175.0,
@@ -1273,7 +1273,7 @@ export default [
     images: [
       {
         id: 0,
-        url: 'assets/img/products/access7.jpg',
+        url: 'https://i.postimg.cc/FHQZbxSx/access7.jpg',
       },
     ],
     vendor: 'Govo',
@@ -1298,7 +1298,7 @@ export default [
     id: 37,
     name: 'Red Alcove',
     category: 'Office',
-    pic: 'assets/img/products/red-seat.jpg',
+    pic: 'https://i.postimg.cc/y8XTLSXC/red-seat.jpg',
     discounted: false,
     price: 45.0,
     oldPrice: 45.0,
@@ -1310,7 +1310,7 @@ export default [
     images: [
       {
         id: 0,
-        url: 'assets/img/products/red-seat.jpg',
+        url: 'https://i.postimg.cc/y8XTLSXC/red-seat.jpg',
       },
     ],
     vendor: "Brook's",

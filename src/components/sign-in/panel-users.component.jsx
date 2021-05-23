@@ -4,29 +4,6 @@ import { connect } from 'react-redux';
 import { selectFakeUsers } from '../../redux/user/user.selectors';
 import { createStructuredSelector } from 'reselect';
 
-const USERS = [
-  {
-    email: 'elie@mail.com',
-    password: 'testpassword',
-    pic: 'http://via.placeholder.com/250x250',
-  },
-  {
-    email: 'john@mail.com',
-    password: 'testpassword',
-    pic: 'http://via.placeholder.com/250x250',
-  },
-  {
-    email: 'luis@mail.com',
-    password: 'testpassword',
-    pic: 'http://via.placeholder.com/250x250',
-  },
-  {
-    email: 'karla@mail.com',
-    password: 'testpassword',
-    pic: 'http://via.placeholder.com/250x250',
-  },
-];
-
 const PanelUsers = (props) => {
   const [isOpenPanelUsers, setIsOpenPanelUsers] = useState(true);
   return (
@@ -62,7 +39,7 @@ const PanelUsers = (props) => {
               key={`user_${idx}`}
               className="login-block"
             >
-              <img src={`https://nephos.cssninja.io/${user.photoUrl}`} />
+              <img src={user.photoUrl} />
               <div className="meta">
                 <span>
                   <label>Email: </label>

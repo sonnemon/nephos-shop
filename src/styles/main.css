@@ -12042,6 +12042,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  background-image: url('https://i.postimg.cc/Dyv0qkNy/main-bg.jpg');
 }
 .shop-wrapper.has-error {
   display: -webkit-box;
@@ -13460,7 +13461,7 @@ button[type='submit'],
   ul
   li.is-active
   .selected-indicator
-  svg {
+  i {
   opacity: 1;
 }
 .add-to-wishlist-modal
@@ -13547,11 +13548,12 @@ button[type='submit'],
   ul
   li
   .selected-indicator
-  svg {
+  i {
   opacity: 0;
-  stroke: #fff;
+  color: #fff;
   height: 16px;
   width: 16px;
+  font-size: 16px;
   stroke-width: 3px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
@@ -14189,6 +14191,9 @@ button[type='submit'],
   transition: all 0.3s;
   overflow: hidden;
 }
+.shop-quickview.has-background-image{
+  background-image: url('https://i.postimg.cc/sf98ttgW/sidebar.jpg');
+}
 .shop-quickview.is-pushed-mobile {
   -webkit-transform: translateX(calc(-100% - 80px));
   transform: translateX(calc(-100% - 80px));
@@ -14786,8 +14791,8 @@ button[type='submit'],
   .quantity
   .sidebar-spinner
   .spinner-button:hover
-  svg {
-  stroke: #0023ff;
+  i {
+  color: #0023ff;
 }
 .cart-quickview
   .inner
@@ -14796,10 +14801,10 @@ button[type='submit'],
   .quantity
   .sidebar-spinner
   .spinner-button
-  svg {
+  i {
   height: 14px;
   width: 14px;
-  stroke: #999;
+  color: #999;
   -webkit-transition: stroke 0.3s;
   transition: stroke 0.3s;
 }
@@ -14832,16 +14837,16 @@ button[type='submit'],
   transform: translateX(200px);
   background: #f9f9f9;
 }
-.cart-quickview .inner .cart-body .shopping-cart-items .remove-item svg {
+.cart-quickview .inner .cart-body .shopping-cart-items .remove-item i {
   width: 16px;
   height: 16px;
-  stroke: #999;
+  color: #999;
 }
 .cart-quickview .inner .cart-body .shopping-cart-items .remove-item:hover {
   background: #fcfcfc;
 }
-.cart-quickview .inner .cart-body .shopping-cart-items .remove-item:hover svg {
-  stroke: #4a4a4a;
+.cart-quickview .inner .cart-body .shopping-cart-items .remove-item:hover i {
+  color: #4a4a4a;
 }
 .quickview-header span:hover svg {
   -webkit-transform: rotate(180deg);
@@ -14960,12 +14965,11 @@ button[type='submit'],
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
-.flat-card .actions div svg,
-.flat-card .actions span svg {
+.flat-card .actions div i,
+.flat-card .actions span i {
   height: 18px;
   width: 18px;
-  margin-left: 10px;
-  stroke: #999;
+  color: #999;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
@@ -19329,8 +19333,8 @@ textarea.textarea.is-button + .textarea-button button {
   .product-quantity
   .details-spinner
   .spinner-button:hover
-  svg {
-  stroke: #0023ff;
+  .icon {
+  color: #0023ff;
 }
 .product-info-panel
   .inner-panel
@@ -19339,10 +19343,9 @@ textarea.textarea.is-button + .textarea-button button {
   .product-quantity
   .details-spinner
   .spinner-button
-  svg {
-  height: 14px;
-  width: 14px;
-  stroke: #999;
+  .icon {
+  font-size: 14px;
+  color: #999;
   -webkit-transition: stroke 0.3s;
   transition: stroke 0.3s;
 }
@@ -23846,11 +23849,11 @@ textarea.textarea.is-button + .textarea-button button {
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
-.spinner-control .spinner-button svg {
+.spinner-control .spinner-button i {
   width: 16px;
   height: 16px;
   stroke-width: 1.6px;
-  stroke: #999;
+  color: #999;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
@@ -23858,7 +23861,7 @@ textarea.textarea.is-button + .textarea-button button {
   opacity: 0.7;
 }
 .spinner-control .spinner-button:hover svg {
-  stroke: #0023ff;
+  color: #0023ff;
 }
 .spinner-control .input-group-prepend .spinner-button {
   border-radius: 4px 0 0 4px;

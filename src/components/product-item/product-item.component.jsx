@@ -1,4 +1,7 @@
 import { Link } from 'react-router-dom';
+import ProductActions from '../product-actions/product-actions.components';
+import { connect } from 'react-redux';
+import { addItemToCart } from '../../redux/cart/cart.actions';
 
 const ProductItem = (props) => {
   return (
@@ -8,7 +11,7 @@ const ProductItem = (props) => {
       data-product-category="House"
     >
       <span className="image">
-        <img src={`https://nephos.cssninja.io/${props.pic}`} alt="" />
+        <img src={props.product.pic} />
       </span>
 
       <span className="product-info">
@@ -21,14 +24,17 @@ const ProductItem = (props) => {
           <small className="is-hidden-mobile">47 Ratings</small>
         </span>
 
-        <Link to={`/product/${props.id}`} className="product-details-link">
-          <span className="product-name">{props.name}</span>
+        <Link
+          to={`/product/${props.product.id}`}
+          className="product-details-link"
+        >
+          <span className="product-name">{props.product.name}</span>
         </Link>
         <span className="product-description">Lorem ipsum sit dolor amet</span>
         <span className="product-price">
-          <span>{props.price}</span>
-          {props.discounted && (
-            <span className="sale-price">{props.oldPrice}</span>
+          <span>{props.product.price}</span>
+          {props.product.discounted && (
+            <span className="sale-price">{props.product.oldPrice}</span>
           )}
         </span>
       </span>
@@ -37,23 +43,19 @@ const ProductItem = (props) => {
         This is a well designed and crafted product that will suit many needs,
         in terms of quality, craftmanship and aesthetics.
         <span className="view-more">
-          <Link to={`/product/${props.id}`} className="product-details-link">
+          <Link
+            to={`/product/${props.product.id}`}
+            className="product-details-link"
+          >
             View more
             <i className="fas view-more fa-chevron-right"></i>
           </Link>
         </span>
       </span>
 
-      <span className="actions">
-        <span className="add icon">
-          <i className="has-simple-popover fas fa-shopping-cart"></i>
-        </span>
-        <span className="like icon">
-          <i className="fas fa-heart"></i>
-        </span>
-      </span>
+      <ProductActions product={props.product} />
 
-      {props.discounted && (
+      {props.product.discounted && (
         <div className="on-sale">
           <i className="has-simple-popover fas fa-dollar-sign"></i>
         </div>
@@ -61,4 +63,9 @@ const ProductItem = (props) => {
     </li>
   );
 };
-export default ProductItem;
+
+const mapDispatchToProps = (dispatch) => ({
+  addItem: (item) => dispatch(addItemToCart(item)),
+});
+
+export default connect(null, mapDispatchToProps)(ProductItem);

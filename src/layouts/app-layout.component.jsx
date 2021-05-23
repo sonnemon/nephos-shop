@@ -10,7 +10,7 @@ import CategoryMenu from '../components/category-menu/category-menu.component';
 import HomeMenu from '../components/home-menu/home-menu.component';
 import CartMenu from '../components/cart-menu/cart-menu.component';
 import SearchMenu from '../components/search-menu/search-menu.component';
-
+import ModalAddToWishlist from '../components/modal-add-to-wishlist/modal-add-to-wishlist.component';
 import { resetMenu } from '../redux/app/app.actions';
 import { connect } from 'react-redux';
 
@@ -45,13 +45,8 @@ const AppLayout = ({ children, history, resetMenu }) => {
       <HomeMenu />
       <CartMenu />
       <SearchMenu />
-      <div
-        className="shop-wrapper has-background-image"
-        data-background="http://via.placeholder.com/1920x1080"
-        data-demo-background="assets/img/bg/main-bg.jpg"
-      >
-        {children}
-      </div>
+      {children}
+      <ModalAddToWishlist />
     </>
   );
 };

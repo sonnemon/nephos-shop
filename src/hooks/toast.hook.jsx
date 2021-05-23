@@ -23,3 +23,15 @@ export const successToast = ({ meesage }) =>
     close: false,
     closeOnClick: true,
   });
+
+export const failureToast = ({ message }) =>
+  useToast({
+    message: message,
+    messageColor: '#fff',
+    icon: 'fas fa-sad-tear',
+    iconColor: '#fff',
+    timeout: 6000,
+    backgroundColor: '#ff3b3c',
+    close: false,
+    closeOnClick: true,
+  });

@@ -3,12 +3,15 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import Home from './pages/home/home.component';
 import CategoryPage from './pages/category-page/category-page.component';
 import Authentication from './pages/authentication/authentication.component';
+import ProductCategory from './pages/product-category/product-category.component';
 import ProductList from './pages/produc-list/product-list.component';
 import ProductDetail from './pages/product-detail/product-detail.component';
 import AccountPage from './pages/account-page/account-page.component';
 import WishlistPage from './pages/wishlist-page/wishlist-page.component';
 import CartPage from './pages/cart-page/cart-page.component';
 import OrdersPage from './pages/orders-page/orders-page';
+import Error404Page from './pages/error-404-page/error-404-page.component';
+
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectCurrentUser } from './redux/user/user.selectors';
@@ -18,6 +21,7 @@ const Router = (props) => {
     <Switch>
       <Route path="/" component={Home} exact />
       <Route path="/category" component={CategoryPage} exact />
+      <Route path="/products" component={ProductCategory} exact />
       <Route path="/products/:category" component={ProductList} exact />
       <Route path="/product/:productId" component={ProductDetail} exact />
       <Route
@@ -66,6 +70,7 @@ const Router = (props) => {
           )
         }
       />
+      <Route component={Error404Page} />
     </Switch>
   );
 };

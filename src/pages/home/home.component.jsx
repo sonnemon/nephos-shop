@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
-    <>
+    <div className="shop-wrapper has-background-image">
       <div className="background-caption">
         <h1>NEPHOS</h1>
       </div>
@@ -18,7 +18,7 @@ const Home = () => {
           Start shopping
         </Link>
       </div>
-    </>
+    </div>
   );
 };
 

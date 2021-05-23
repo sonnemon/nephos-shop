@@ -10,9 +10,9 @@ export const fetchProductsSuccess = (products) => ({
   payload: products,
 });
 
-export const fetchProductsFailure = (keyError) => ({
+export const fetchProductsFailure = (error) => ({
   type: ProductActionTypes.FETCH_PRODUCTS_FAILURE,
-  payload: keyError,
+  payload: error,
 });
 
 export const fetchProductStart = (payload) => ({
@@ -27,5 +27,20 @@ export const fetchProductSuccess = (product) => ({
 
 export const fetchProductFailure = (error) => ({
   type: ProductActionTypes.FETCH_PRODUCT_FAILURE,
+  payload: error,
+});
+
+export const fetchProductsCategoryStart = (payload) => ({
+  type: ProductActionTypes.FETCH_PRODUCTS_CATEGORY_START,
+  payload,
+});
+
+export const fetchProductsCategorySuccess = (products) => ({
+  type: ProductActionTypes.FETCH_PRODUCTS_CATEGORY_SUCCESS,
+  payload: products,
+});
+
+export const fetchProductsCategoryFailure = (error) => ({
+  type: ProductActionTypes.FETCH_PRODUCTS_CATEGORY_FAILURE,
   payload: error,
 });

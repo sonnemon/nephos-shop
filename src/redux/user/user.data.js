@@ -1,99 +1,4 @@
-const myWishlists = [
-  {
-    id: 0,
-    name: 'Nice Couches',
-    products: [
-      {
-        id: 9,
-        name: 'Imperator',
-        category: 'Office',
-        price: 699.99,
-        images: [
-          {
-            url: 'assets/img/products/office3.jpg',
-          },
-        ],
-      },
-      {
-        id: 13,
-        name: 'Ambassador',
-        category: 'Office',
-        price: 480.0,
-        images: [
-          {
-            url: 'assets/img/products/office9.png',
-          },
-        ],
-      },
-      {
-        id: 14,
-        name: 'Conqueror',
-        category: 'Office',
-        price: 590.0,
-        images: [
-          {
-            url: 'assets/img/products/office6.png',
-          },
-        ],
-      },
-      {
-        id: 15,
-        name: 'Gentleman',
-        category: 'Office',
-        price: 375.0,
-        images: [
-          {
-            url: 'assets/img/products/office7.gif',
-          },
-        ],
-      },
-    ],
-  },
-  {
-    id: 1,
-    name: "Ryan's new room",
-    products: [
-      {
-        id: 20,
-        name: 'Treasure Chest',
-        category: 'For Kids',
-        price: 185.0,
-        images: [
-          {
-            url: 'assets/img/products/kids5.jpg',
-          },
-        ],
-      },
-      {
-        id: 21,
-        name: 'Child desk',
-        category: 'For Kids',
-        price: 190.0,
-        images: [
-          {
-            url: 'assets/img/products/kids7.jpg',
-          },
-        ],
-      },
-      {
-        id: 17,
-        name: 'Rabbit lamp',
-        category: 'For Kids',
-        price: 14.49,
-        images: [
-          {
-            url: 'assets/img/products/kids2.jpg',
-          },
-        ],
-      },
-    ],
-  },
-  {
-    id: 2,
-    name: 'My Next Purchases',
-    products: [],
-  },
-];
+import { v4 as uuidv4 } from 'uuid';
 const myOrders = [
   {
     id: 46985,
@@ -379,8 +284,7 @@ export default [
     email: 'elie@mail.com',
     password: 'testpassword',
     phone: '+1 555 623 568',
-    photoUrl: 'assets/img/avatars/elie.jpg',
-    wishlists: myWishlists,
+    photoUrl: 'https://i.postimg.cc/bvww4KbN/elie.jpg',
     orders: myOrders,
     addresses: elieAddresses,
   },
@@ -391,8 +295,7 @@ export default [
     email: 'john@mail.com',
     password: 'testpassword',
     phone: '+1 555 623 568',
-    photoUrl: 'assets/img/avatars/john.jpg',
-    wishlists: myWishlists,
+    photoUrl: 'https://i.postimg.cc/B68QnHMr/john.jpg',
     orders: myOrders,
     addresses: johnAddresses,
   },
@@ -403,8 +306,7 @@ export default [
     email: 'samantha@mail.com',
     password: 'testpassword',
     phone: '+1 555 623 568',
-    photoUrl: 'assets/img/avatars/samantha.jpg',
-    wishlists: myWishlists,
+    photoUrl: 'https://i.postimg.cc/cHV1gCzr/samantha.jpg',
     orders: myOrders,
     addresses: samanthaAddresses,
   },
@@ -415,8 +317,7 @@ export default [
     email: 'arthur@mail.com',
     password: 'testpassword',
     phone: '+1 555 623 568',
-    photoUrl: 'assets/img/avatars/arthur.jpg',
-    wishlists: myWishlists,
+    photoUrl: 'https://i.postimg.cc/zvKzn5mp/arthur.jpg',
     orders: myOrders,
     addresses: arthurAddresses,
   },

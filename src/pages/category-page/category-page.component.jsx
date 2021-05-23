@@ -20,32 +20,34 @@ const CategoryPage = (props) => {
     return <Loader />;
   }
   return (
-    <div className="section">
-      <div className="container">
-        <div className="columns category-header">
-          <div className="column main-column is-tablet-landscape-padded">
-            <div className="category-title no-border is-padded">
-              <h2>SHOP</h2>
-              <img className="brand-filigrane" src={backtitle} alt="" />
-            </div>
-            <div className="is-categories-grid">
-              <div className="tile is-ancestor">
-                <div className="tile is-vertical is-8">
-                  <div className="tile">
-                    <div className="tile is-parent is-vertical">
-                      <CategoryItem {...props.categoryList[2]} />
-                      <CategoryItem {...props.categoryList[3]} />
+    <div className="shop-wrapper">
+      <div className="section">
+        <div className="container">
+          <div className="columns category-header">
+            <div className="column main-column is-tablet-landscape-padded">
+              <div className="category-title no-border is-padded">
+                <h2>SHOP</h2>
+                <img className="brand-filigrane" src={backtitle} alt="" />
+              </div>
+              <div className="is-categories-grid">
+                <div className="tile is-ancestor">
+                  <div className="tile is-vertical is-8">
+                    <div className="tile">
+                      <div className="tile is-parent is-vertical">
+                        <CategoryItem {...props.categoryList[2]} />
+                        <CategoryItem {...props.categoryList[3]} />
+                      </div>
+                      <div className="tile is-parent">
+                        <CategoryItem {...props.categoryList[4]} />
+                      </div>
                     </div>
                     <div className="tile is-parent">
-                      <CategoryItem {...props.categoryList[4]} />
+                      <CategoryItem {...props.categoryList[1]} />
                     </div>
                   </div>
                   <div className="tile is-parent">
-                    <CategoryItem {...props.categoryList[1]} />
+                    <CategoryItem {...props.categoryList[0]} />
                   </div>
-                </div>
-                <div className="tile is-parent">
-                  <CategoryItem {...props.categoryList[0]} />
                 </div>
               </div>
             </div>

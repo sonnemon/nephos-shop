@@ -1,18 +1,27 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
+import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectIsOpenHomeMenu } from '../../redux/app/app.selector';
+import { selectCurrentUser } from '../../redux/user/user.selectors';
+import { selectCartItems } from '../../redux/cart/cart.selectors';
 import { onToggleHomeMenu } from '../../redux/app/app.actions';
 
 const HomeMenu = (props) => {
+  const [totalQuantity, setTotalQuantity] = useState(0);
+  useEffect(() => {
+    let quantity = 0;
+    for (const item of props.cartItems) {
+      quantity = quantity + item.quantity;
+    }
+    setTotalQuantity(quantity);
+  }, [props.cartItems]);
   return (
     <div
-      className={`shop-quickview has-background-image ${
-        props.isOpen ? 'is-active' : ''
-      }`}
-      data-background="http://via.placeholder.com/1280x853"
-      data-demo-background="assets/img/bg/sidebar.jpeg"
+      className={classNames('shop-quickview has-background-image', {
+        'is-active': props.isOpen,
+      })}
     >
       <div className="inner">
         <div className="quickview-header">
@@ -58,20 +67,27 @@ const HomeMenu = (props) => {
         </ul>
         <ul className="user-profile">
           <li>
-            <a>
-              <img
-                id="quickview-avatar"
-                src="http://via.placeholder.com/250x250"
-                data-demo-src="assets/img/avatars/altvatar.png"
-                alt=""
-              />
-              <span className="user">
-                <span id="quickview-username">Guest</span>
-                <span id="quickview-cart-count">
-                  <var>0</var> <small>Items in Cart</small>
+            {props.user ? (
+              <a>
+                <img src={props.user.photoUrl} />
+                <span className="user">
+                  <span id="quickview-username">{props.user.firstName}</span>
+                  <span id="quickview-cart-count">
+                    <var>{totalQuantity}</var> <small>Items in Cart</small>
+                  </span>
                 </span>
-              </span>
-            </a>
+              </a>
+            ) : (
+              <a>
+                <img src="http://via.placeholder.com/250x250" />
+                <span className="user">
+                  <span id="quickview-username">Guest</span>
+                  <span id="quickview-cart-count">
+                    <var>{totalQuantity}</var> <small>Items in Cart</small>
+                  </span>
+                </span>
+              </a>
+            )}
           </li>
         </ul>
       </div>
@@ -81,6 +97,8 @@ const HomeMenu = (props) => {
 
 const mapStateToProps = createStructuredSelector({
   isOpen: selectIsOpenHomeMenu,
+  user: selectCurrentUser,
+  cartItems: selectCartItems,
 });
 
 const mapDispatchToProps = (dispatch) => ({

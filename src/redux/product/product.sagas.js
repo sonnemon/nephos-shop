@@ -7,6 +7,8 @@ import {
   fetchProductsFailure,
   fetchProductSuccess,
   fetchProductFailure,
+  fetchProductsCategorySuccess,
+  fetchProductsCategoryFailure,
 } from './product.actions';
 
 function* fetchProducts({ payload }) {
@@ -49,6 +51,38 @@ function* onFetchProductStart() {
   yield takeLatest(ProductActionTypes.FETCH_PRODUCT_START, fetchProduct);
 }
 
+function* fetchProductCategory({ payload }) {
+  try {
+    let products = categoryData;
+    for (const category of products) {
+      if (!('products' in category)) {
+        category['products'] = [];
+      }
+      for (const product of productData) {
+        if (category['products'].length == 3) {
+          break;
+        }
+        if (category.name == product.category) {
+          category['products'].push(product);
+        }
+      }
+    }
+    yield put(fetchProductsCategorySuccess(products));
+  } catch (error) {
+    yield put(fetchProductsCategoryFailure('ERROR_TO_FETCH_PRODUCT_CATEGORY'));
+  }
+  payload.callback();
+}
+function* onFectchProductCategoryStart() {
+  yield takeLatest(
+    ProductActionTypes.FETCH_PRODUCTS_CATEGORY_START,
+    fetchProductCategory
+  );
+}
 export function* productSagas() {
-  yield all([call(onFetchProductsStart), call(onFetchProductStart)]);
+  yield all([
+    call(onFetchProductsStart),
+    call(onFetchProductStart),
+    call(onFectchProductCategoryStart),
+  ]);
 }

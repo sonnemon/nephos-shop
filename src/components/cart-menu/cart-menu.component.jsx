@@ -1,13 +1,24 @@
 import React from 'react';
-
+import classNames from 'classnames';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectIsOpenCartMenu } from '../../redux/app/app.selector';
 import { onToggleCartMenu } from '../../redux/app/app.actions';
+import {
+  selectCartItems,
+  selectTotalAmount,
+} from '../../redux/cart/cart.selectors';
+import {
+  changeQuantityToCart,
+  removeItemToCart,
+} from '../../redux/cart/cart.actions';
 
 const CartMenu = (props) => {
   return (
-    <div className={`cart-quickview ${props.isOpen ? 'is-active' : ''}`}>
+    <div
+      className={classNames('cart-quickview', { 'is-active': props.isOpen })}
+    >
       <div className="inner">
         <div className="quickview-header">
           <h2>Quick Cart</h2>
@@ -19,13 +30,13 @@ const CartMenu = (props) => {
           </span>
         </div>
         <div className="cart-action">
-          <span className="cart-total">0.00</span>
-          <a
-            href="cart.html"
+          <span className="cart-total">{props.totalAmount}</span>
+          <Link
+            to="/cart"
             className="button view-cart-button primary-button upper-button raised is-bold"
           >
             <span>View Cart</span>
-          </a>
+          </Link>
           <a className="button update-cart-button upper-button is-bold is-hidden">
             <span>Update</span>
           </a>
@@ -40,138 +51,59 @@ const CartMenu = (props) => {
             </a>
             <small>You can create your account later</small>
           </div>
-
-          {/* <div className="cart-loader is-active">
-            <div className="loader is-loading"></div>
-          </div> */}
-
           <ul className="shopping-cart-items">
-            <li className="clearfix">
-              <img
-                src="http://via.placeholder.com/250x250"
-                data-demo-src="assets/img/products/office5.jpg"
-                alt=""
-              />
-              <span className="item-meta">
-                <span className="item-name">Cosy Chair</span>
-                <span className="item-price">
-                  <var>88.00</var> x <span>1</span>
+            {props.cartItems.map((product, idx) => (
+              <li className="clearfix" key={`cart_item_${idx}`}>
+                <img src={product.pic} />
+                <span className="item-meta">
+                  <span className="item-name">{product.name}</span>
+                  <span className="item-price">
+                    <var>{product.price}</var> x <span>{product.quantity}</span>
+                  </span>
                 </span>
-              </span>
-              <span className="quantity">
-                <div data-trigger="spinner" className="return-spinner">
-                  <input
-                    className="hidden-spinner"
-                    type="hidden"
-                    value="1"
-                    data-spin="spinner"
-                    data-rule="quantity"
-                    data-min="1"
-                    data-max="99"
-                  />
-                  <a className="spinner-button is-remove" data-spin="down">
-                    <i data-feather="minus"></i>
-                  </a>
-                  <span className="spinner-value">1</span>
-                  <a className="spinner-button is-add" data-spin="up">
-                    <i data-feather="plus"></i>
-                  </a>
-                </div>
-              </span>
-
-              <span className="remove-item">
-                <i
-                  data-feather="x"
-                  className="has-simple-popover"
-                  data-content="Remove from Cart"
-                  data-placement="top"
-                ></i>
-              </span>
-            </li>
-            <li className="clearfix">
-              <img
-                src="http://via.placeholder.com/250x250"
-                data-demo-src="assets/img/products/red-seat.png"
-                alt=""
-              />
-              <span className="item-meta">
-                <span className="item-name">Red Seat</span>
-                <span className="item-price">
-                  <var>45.00</var> x <span>1</span>
+                <span className="quantity">
+                  <div className="sidebar-spinner">
+                    <input
+                      className="hidden-spinner"
+                      type="hidden"
+                      value={product.quantity}
+                      data-min="1"
+                      data-max="99"
+                    />
+                    <a
+                      onClick={() =>
+                        props.changeQuantity({
+                          ...product,
+                          quantity: product.quantity - 1,
+                        })
+                      }
+                      className="spinner-button is-remove"
+                    >
+                      <i className="fas fa-minus"></i>
+                    </a>
+                    <span className="spinner-value">{product.quantity}</span>
+                    <a
+                      onClick={() =>
+                        props.changeQuantity({
+                          ...product,
+                          quantity: product.quantity + 1,
+                        })
+                      }
+                      className="spinner-button is-add"
+                    >
+                      <i className="fas fa-plus"></i>
+                    </a>
+                  </div>
                 </span>
-              </span>
-              <span className="quantity">
-                <div data-trigger="spinner" className="return-spinner">
-                  <input
-                    className="hidden-spinner"
-                    type="hidden"
-                    value="1"
-                    data-spin="spinner"
-                    data-rule="quantity"
-                    data-min="1"
-                    data-max="99"
-                  />
-                  <a className="spinner-button is-remove" data-spin="down">
-                    <i data-feather="minus"></i>
-                  </a>
-                  <span className="spinner-value">1</span>
-                  <a className="spinner-button is-add" data-spin="up">
-                    <i data-feather="plus"></i>
-                  </a>
-                </div>
-              </span>
 
-              <span className="remove-item">
-                <i
-                  data-feather="x"
-                  className="has-simple-popover"
-                  data-content="Remove from Cart"
-                  data-placement="top"
-                ></i>
-              </span>
-            </li>
-            <li className="clearfix">
-              <img
-                src="http://via.placeholder.com/250x250"
-                data-demo-src="assets/img/products/kids2.jpg"
-                alt=""
-              />
-              <span className="item-meta">
-                <span className="item-name">Rabbit Lamp</span>
-                <span className="item-price">
-                  <var>14.49</var> x <span>3</span>
+                <span
+                  onClick={() => props.removeItem(product)}
+                  className="remove-item"
+                >
+                  <i className="has-simple-popover fas fa-times"></i>
                 </span>
-              </span>
-              <span className="quantity">
-                <div data-trigger="spinner" className="return-spinner">
-                  <input
-                    className="hidden-spinner"
-                    type="hidden"
-                    value="3"
-                    data-spin="spinner"
-                    data-rule="quantity"
-                    data-min="1"
-                    data-max="99"
-                  />
-                  <a className="spinner-button is-remove" data-spin="down">
-                    <i data-feather="minus"></i>
-                  </a>
-                  <span className="spinner-value">3</span>
-                  <a className="spinner-button is-add" data-spin="up">
-                    <i data-feather="plus"></i>
-                  </a>
-                </div>
-              </span>
-
-              <span className="remove-item">
-                <i
-                  data-feather="x"
-                  className="has-simple-popover"
-                  data-content="Remove from Cart"
-                  data-placement="top"
-                ></i>
-              </span>
-            </li>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
@@ -181,10 +113,14 @@ const CartMenu = (props) => {
 
 const mapStateToProps = createStructuredSelector({
   isOpen: selectIsOpenCartMenu,
+  cartItems: selectCartItems,
+  totalAmount: selectTotalAmount,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   toggleCartMenu: () => dispatch(onToggleCartMenu()),
+  changeQuantity: (item) => dispatch(changeQuantityToCart(item)),
+  removeItem: (item) => dispatch(removeItemToCart(item)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CartMenu);
