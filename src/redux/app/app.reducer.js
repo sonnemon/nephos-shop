@@ -42,12 +42,23 @@ const userReducer = (state = INITIAL_STATE, action) => {
         isOpenHomeMenu: !state.isOpenSidebar ? false : true,
       };
     case AppActionTypes.RESET_MENU:
-      return {
-        isOpenHomeMenu: false,
-        isOpenCartMenu: false,
-        isOpenSearchMenu: false,
-        isOpenCategoryMenu: false,
-      };
+      if (action.payload) {
+        return {
+          isOpenHomeMenu: false,
+          isOpenCartMenu: false,
+          isOpenSearchMenu: false,
+          isOpenCategoryMenu: false,
+          isOpenSidebar: true,
+        };
+      } else {
+        return {
+          isOpenHomeMenu: false,
+          isOpenCartMenu: false,
+          isOpenSearchMenu: false,
+          isOpenCategoryMenu: false,
+        };
+      }
+
     default:
       return state;
   }

@@ -63,6 +63,8 @@ const wishReducer = (state = INITIAL_STATE, action) => {
           action.payload.wishId
         ),
       };
+    case WishActionTypes.SET_DEFAULT_STATE:
+      return INITIAL_STATE;
     case WishActionTypes.CREATE_WISH_FAILURE:
     case WishActionTypes.FETCH_WISHES_FAILURE:
       return {

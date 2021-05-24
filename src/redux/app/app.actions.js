@@ -20,6 +20,7 @@ export const onToggleSidebar = () => ({
   type: AppActionTypes.TOGGLE_SIDEBAR,
 });
 
-export const resetMenu = () => ({
+export const resetMenu = (payload) => ({
   type: AppActionTypes.RESET_MENU,
+  payload,
 });

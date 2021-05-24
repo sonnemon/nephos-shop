@@ -15,12 +15,7 @@ const SearchMenu = (props) => {
       >
         <div className={`field ${props.isOpen ? 'is-active' : ''}`}>
           <div className="control">
-            <input
-              id="nephos-search"
-              type="text"
-              name="search"
-              placeholder="Search a Product"
-            />
+            <input type="text" name="search" placeholder="Search a Product" />
             <span id="clear-search" role="button">
               <i data-feather="x"></i>
             </span>

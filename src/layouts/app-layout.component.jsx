@@ -14,12 +14,12 @@ import ModalAddToWishlist from '../components/modal-add-to-wishlist/modal-add-to
 import { resetMenu } from '../redux/app/app.actions';
 import { connect } from 'react-redux';
 
-const AppLayout = ({ children, history, resetMenu }) => {
-  history.listen(() => {
-    resetMenu(resetMenu);
-  });
+const AppLayout = ({ children, history, resetMenu, ...otherProps }) => {
   const [isLoading, setIsLoading] = useState(true);
   const isMobile = useMediaQuery({ maxWidth: 767 });
+  history.listen(() => {
+    resetMenu(isMobile);
+  });
   useEffect(() => {
     setTimeout(() => {
       setIsLoading((prev) => !prev);
@@ -38,7 +38,7 @@ const AppLayout = ({ children, history, resetMenu }) => {
           'is-active': isLoading,
         })}
       />
-      <Navbar />
+      {!history.location.pathname.includes('checkout') && <Navbar />}
       <MainSidebar isMobile={isMobile} />
       <QuickView />
       <CategoryMenu />
@@ -52,6 +52,6 @@ const AppLayout = ({ children, history, resetMenu }) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  resetMenu: () => dispatch(resetMenu()),
+  resetMenu: (payload) => dispatch(resetMenu(payload)),
 });
 export default connect(null, mapDispatchToProps)(withRouter(AppLayout));

@@ -23,6 +23,11 @@ const userReducer = (state = INITIAL_STATE, action) => {
         jwtToken: null,
         error: null,
       };
+    case UserActionTypes.EDIT_USER_SUCCESS:
+      return {
+        ...state,
+        currentUser: action.payload,
+      };
     case UserActionTypes.SIGN_OUT_FAILURE:
     case UserActionTypes.SIGN_IN_FAILURE:
     case UserActionTypes.SIGN_UP_FAILURE:

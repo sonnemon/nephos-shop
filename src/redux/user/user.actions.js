@@ -51,3 +51,18 @@ export const signUpFailure = (error) => ({
   type: UserActionTypes.SIGN_UP_FAILURE,
   payload: error,
 });
+
+export const editUserStart = (user) => ({
+  type: UserActionTypes.EDIT_USER_START,
+  payload: user,
+});
+
+export const editUserSuccess = (user) => ({
+  type: UserActionTypes.EDIT_USER_SUCCESS,
+  payload: user,
+});
+
+export const editUserFailure = (error) => ({
+  type: UserActionTypes.EDIT_USER_FAILURE,
+  payload: error,
+});

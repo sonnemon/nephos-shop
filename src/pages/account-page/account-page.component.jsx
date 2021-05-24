@@ -1,5 +1,6 @@
 import React from 'react';
 import backtitle from '../../images/logo/nephos-greyscale.svg';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectCurrentUser } from '../../redux/user/user.selectors';
@@ -94,14 +95,10 @@ const AccountPage = (props) => {
                     <div className="card-title">
                       <h3>Account details</h3>
 
-                      <div
-                        className="edit-account has-simple-popover popover-hidden-mobile"
-                        data-content="Edit Account"
-                        data-placement="top"
-                      >
-                        <a href="account-edit.html">
+                      <div className="edit-account has-simple-popover popover-hidden-mobile">
+                        <Link to="/account/edit">
                           <i className="fas fa-cog"></i>
-                        </a>
+                        </Link>
                       </div>
                     </div>
                     <div className="card-body">

@@ -10,6 +10,8 @@ import {
   signUpFailure,
 } from './user.actions';
 
+import { setWishDefaultState } from '../wish/wish.actions';
+
 function* signInWithEmail({ payload }) {
   try {
     const user = userData.find(
@@ -46,6 +48,7 @@ function* isuserAuthenticated() {
 
 function* signout() {
   try {
+    yield put(setWishDefaultState());
     yield put(signOutSuccess());
   } catch (error) {
     yield put(signOutFailure(error));

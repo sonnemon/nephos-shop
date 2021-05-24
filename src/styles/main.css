@@ -13597,14 +13597,15 @@ button[type='submit'],
   align-items: center;
   margin-left: auto;
 }
-.upload-crop-modal .modal-content .modal-delete svg {
+.upload-crop-modal .modal-content .modal-delete i {
+  font-size: 20px;
   width: 20px;
   height: 20px;
   stroke: #999;
   cursor: pointer;
 }
-.upload-crop-modal .modal-content .modal-delete svg:hover {
-  stroke: #0023ff;
+.upload-crop-modal .modal-content .modal-delete i:hover {
+  color: #0023ff;
 }
 .upload-crop-modal .modal-content .box {
   padding: 0;
@@ -17513,7 +17514,7 @@ textarea.textarea.is-button + .textarea-button button {
   height: 100%;
   width: 100%;
 }
-.avatar-wrapper .upload-button .upload-icon {
+.avatar-wrapper .upload-button .icon {
   position: absolute;
   width: 30px;
   height: 30px;
@@ -17525,9 +17526,9 @@ textarea.textarea.is-button + .textarea-button button {
   opacity: 0;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
-  stroke: #0023ff;
+  color: #0023ff;
 }
-.avatar-wrapper .upload-button:hover .upload-icon {
+.avatar-wrapper .upload-button:hover .icon {
   opacity: 0.9;
 }
 .upload-card {
@@ -21558,7 +21559,7 @@ textarea.textarea.is-button + .textarea-button button {
   height: 100%;
   width: 420px;
   background: #dedede;
-  z-index: 5;
+  z-index: 20;
 }
 .checkout-wrapper .checkout-side .side-header {
   height: 60px;

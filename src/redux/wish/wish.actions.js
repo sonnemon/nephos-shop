@@ -79,3 +79,7 @@ export const addItemToWishFailure = (error) => ({
   type: WishActionTypes.ADD_ITEM_TO_WISH_FAILURE,
   payload: error,
 });
+
+export const setWishDefaultState = () => ({
+  type: WishActionTypes.SET_DEFAULT_STATE,
+});

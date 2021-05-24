@@ -1,4 +1,5 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import TabAccount from '../../components/tab-account/tab-account.component';
 import { connect } from 'react-redux';
@@ -14,6 +15,14 @@ import {
 } from '../../redux/cart/cart.actions';
 
 const CartPage = (props) => {
+  const [totalQuantity, setTotalQuantity] = useState(0);
+  useEffect(() => {
+    let quantity = 0;
+    for (const item of props.items) {
+      quantity = quantity + item.quantity;
+    }
+    setTotalQuantity(quantity);
+  }, [props.items]);
   return (
     <div className="shop-wrapper">
       <div className="section">
@@ -141,7 +150,8 @@ const CartPage = (props) => {
                           <i className="fas fa-trash" />
                         </span>
                         <div>
-                          <var>1</var> <span>Item(s) in Cart</span>
+                          <var>{totalQuantity}</var>{' '}
+                          <span>Item(s) in Cart</span>
                         </div>
                       </div>
                       <div className="cart-summary-list">
@@ -164,9 +174,12 @@ const CartPage = (props) => {
                           </span>
                         </div>
                       </div>
-                      <button className="button is-fullwidth feather-button is-bold primary-button raised is-rounded">
+                      <Link
+                        to="/checkout/step1"
+                        className="button is-fullwidth feather-button is-bold primary-button raised is-rounded"
+                      >
                         Checkout
-                      </button>
+                      </Link>
                       <button className="button is-fullwidth feather-button is-bold secondary-button raised is-rounded is-hidden">
                         Update Cart
                       </button>
