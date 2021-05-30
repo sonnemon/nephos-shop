@@ -9,11 +9,12 @@ import productReducer from './product/product.reducer';
 import cartReducer from './cart/cart.reducer';
 import orderReducer from './order/order.reducer';
 import wishReducer from './wish/wish.reducer';
+import shippingReducer from './shipping/shipping.reducer';
 
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['user', 'category', 'cart', 'wish'],
+  whitelist: ['user', 'category', 'cart', 'wish', 'shipping'],
 };
 
 const rootReducer = combineReducers({
@@ -24,6 +25,7 @@ const rootReducer = combineReducers({
   cart: cartReducer,
   order: orderReducer,
   wish: wishReducer,
+  shipping: shippingReducer,
 });
 
 export default persistReducer(persistConfig, rootReducer);

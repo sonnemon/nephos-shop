@@ -14,3 +14,8 @@ export const changeQuantityToCart = (item) => ({
   type: CartActionTypes.CHANGE_QUANTITY_TO_CART,
   payload: item,
 });
+
+export const setShippingMethod = (item) => ({
+  type: CartActionTypes.SET_SHIPPING_METHOD,
+  payload: item,
+});

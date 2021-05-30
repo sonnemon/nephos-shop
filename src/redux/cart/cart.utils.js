@@ -39,10 +39,40 @@ export function changeQuantityItemToCart(cartItems, itemToCart) {
   });
 }
 
-export function calcTotalAmount(cartItems) {
+export function calcTotalAmount(params) {
+  return 1;
+}
+
+function calcTotalCart(cartItems) {
   let totalAmount = 0;
   for (const cartItem of cartItems) {
     totalAmount = totalAmount + cartItem.price * cartItem.quantity;
   }
   return totalAmount;
+}
+
+export function calcAll(cartItem, taxes, shipping) {
+  const totalCart = calcTotalCart(cartItem);
+  if (totalCart <= 0) {
+    return {
+      shipping: null,
+      total: 0,
+      taxes: 0,
+      totalAmount: 0,
+    };
+  }
+  const totalTaxes = parseInt(((totalCart * taxes) / 100).toFixed(2));
+  if (!shipping) {
+    return {
+      shipping: null,
+      total: totalCart,
+      taxes: totalTaxes,
+      totalAmount: totalCart + totalTaxes,
+    };
+  }
+  return {
+    total: totalCart,
+    taxes: totalTaxes,
+    totalAmount: totalCart + totalTaxes + shipping.price,
+  };
 }

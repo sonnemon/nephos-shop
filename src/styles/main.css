@@ -20345,7 +20345,7 @@ textarea.textarea.is-button + .textarea-button button {
   > input:checked
   ~ .method-card-inner
   .icon-container
-  img,
+  svg,
 .checkout-wrapper
   .checkout-main
   .checkout-container
@@ -20355,7 +20355,7 @@ textarea.textarea.is-button + .textarea-button button {
   > input:checked
   ~ .method-card-inner
   .icon-container
-  img,
+  svg,
 .checkout-wrapper
   .checkout-main
   .checkout-container
@@ -20365,7 +20365,7 @@ textarea.textarea.is-button + .textarea-button button {
   > input:checked
   ~ .method-card-inner
   .icon-container
-  img,
+  svg,
 .checkout-wrapper
   .checkout-main
   .checkout-container
@@ -20375,7 +20375,7 @@ textarea.textarea.is-button + .textarea-button button {
   > input:checked
   ~ .method-card-inner
   .icon-container
-  img,
+  svg,
 .checkout-wrapper
   .checkout-main
   .checkout-container
@@ -20385,7 +20385,7 @@ textarea.textarea.is-button + .textarea-button button {
   > input:checked
   ~ .method-card-inner
   .icon-container
-  img,
+  svg,
 .checkout-wrapper
   .checkout-main
   .checkout-container
@@ -20395,7 +20395,7 @@ textarea.textarea.is-button + .textarea-button button {
   > input:checked
   ~ .method-card-inner
   .icon-container
-  img,
+  svg,
 .checkout-wrapper
   .checkout-main
   .checkout-container
@@ -20405,7 +20405,7 @@ textarea.textarea.is-button + .textarea-button button {
   > input:checked
   ~ .method-card-inner
   .icon-container
-  img,
+  svg,
 .checkout-wrapper
   .checkout-main
   .checkout-container
@@ -20415,7 +20415,7 @@ textarea.textarea.is-button + .textarea-button button {
   > input:checked
   ~ .method-card-inner
   .icon-container
-  img,
+  svg,
 .checkout-wrapper
   .checkout-main
   .checkout-container
@@ -20425,7 +20425,7 @@ textarea.textarea.is-button + .textarea-button button {
   > input:checked
   ~ .method-card-inner
   .icon-container
-  img {
+  svg {
   -webkit-filter: grayscale(0);
   filter: grayscale(0);
   opacity: 1;
@@ -20676,7 +20676,7 @@ textarea.textarea.is-button + .textarea-button button {
   .shipping-methods-grid
   .method-card
   .icon-container
-  img,
+  svg,
 .checkout-wrapper
   .checkout-main
   .checkout-container
@@ -20684,7 +20684,7 @@ textarea.textarea.is-button + .textarea-button button {
   .payment-methods-grid
   .method-card
   .icon-container
-  img,
+  svg,
 .checkout-wrapper
   .checkout-main
   .checkout-container
@@ -20692,7 +20692,7 @@ textarea.textarea.is-button + .textarea-button button {
   .order-summary-grid
   .method-card
   .icon-container
-  img,
+  svg,
 .checkout-wrapper
   .checkout-main
   .checkout-container
@@ -20700,7 +20700,7 @@ textarea.textarea.is-button + .textarea-button button {
   .shipping-methods-grid
   .method-card
   .icon-container
-  img,
+  svg,
 .checkout-wrapper
   .checkout-main
   .checkout-container
@@ -20708,7 +20708,7 @@ textarea.textarea.is-button + .textarea-button button {
   .payment-methods-grid
   .method-card
   .icon-container
-  img,
+  svg,
 .checkout-wrapper
   .checkout-main
   .checkout-container
@@ -20716,7 +20716,7 @@ textarea.textarea.is-button + .textarea-button button {
   .order-summary-grid
   .method-card
   .icon-container
-  img,
+  svg,
 .checkout-wrapper
   .checkout-main
   .checkout-container
@@ -20724,7 +20724,7 @@ textarea.textarea.is-button + .textarea-button button {
   .shipping-methods-grid
   .method-card
   .icon-container
-  img,
+  svg,
 .checkout-wrapper
   .checkout-main
   .checkout-container
@@ -20732,7 +20732,7 @@ textarea.textarea.is-button + .textarea-button button {
   .payment-methods-grid
   .method-card
   .icon-container
-  img,
+  svg,
 .checkout-wrapper
   .checkout-main
   .checkout-container
@@ -20740,7 +20740,7 @@ textarea.textarea.is-button + .textarea-button button {
   .order-summary-grid
   .method-card
   .icon-container
-  img {
+  svg {
   display: block;
   -webkit-filter: grayscale(1);
   filter: grayscale(1);
@@ -20842,7 +20842,7 @@ textarea.textarea.is-button + .textarea-button button {
   .method-card
   .icon-container
   .indicator
-  svg,
+  i,
 .checkout-wrapper
   .checkout-main
   .checkout-container
@@ -20851,7 +20851,7 @@ textarea.textarea.is-button + .textarea-button button {
   .method-card
   .icon-container
   .indicator
-  svg,
+  i,
 .checkout-wrapper
   .checkout-main
   .checkout-container
@@ -20860,7 +20860,7 @@ textarea.textarea.is-button + .textarea-button button {
   .method-card
   .icon-container
   .indicator
-  svg,
+  i,
 .checkout-wrapper
   .checkout-main
   .checkout-container
@@ -20869,7 +20869,7 @@ textarea.textarea.is-button + .textarea-button button {
   .method-card
   .icon-container
   .indicator
-  svg,
+  i,
 .checkout-wrapper
   .checkout-main
   .checkout-container
@@ -20878,7 +20878,7 @@ textarea.textarea.is-button + .textarea-button button {
   .method-card
   .icon-container
   .indicator
-  svg,
+  i,
 .checkout-wrapper
   .checkout-main
   .checkout-container
@@ -20887,7 +20887,7 @@ textarea.textarea.is-button + .textarea-button button {
   .method-card
   .icon-container
   .indicator
-  svg,
+  i,
 .checkout-wrapper
   .checkout-main
   .checkout-container
@@ -20896,7 +20896,7 @@ textarea.textarea.is-button + .textarea-button button {
   .method-card
   .icon-container
   .indicator
-  svg,
+  i,
 .checkout-wrapper
   .checkout-main
   .checkout-container
@@ -20905,7 +20905,7 @@ textarea.textarea.is-button + .textarea-button button {
   .method-card
   .icon-container
   .indicator
-  svg,
+  i,
 .checkout-wrapper
   .checkout-main
   .checkout-container
@@ -20914,11 +20914,11 @@ textarea.textarea.is-button + .textarea-button button {
   .method-card
   .icon-container
   .indicator
-  svg {
+  i {
   height: 10px;
   width: 10px;
-  stroke-width: 5px;
-  stroke: #fff;
+  font-size: 10px;
+  color: #fff;
 }
 .checkout-wrapper
   .checkout-main

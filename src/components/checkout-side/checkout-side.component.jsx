@@ -2,8 +2,10 @@ import { withRouter, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import {
-  selectTotalAmount,
   selectTaxes,
+  selectTotal,
+  selectTotalAmount,
+  selectShippingMethod,
 } from '../../redux/cart/cart.selectors';
 import { selectCurrentUser } from '../../redux/user/user.selectors';
 
@@ -22,16 +24,11 @@ const CheckoutSide = (props) => {
       <div className="side-inner has-slimscroll">
         <div className="side-card user-card">
           <div className="avatar-container">
-            <img
-              id="checkout-avatar"
-              src="http://via.placeholder.com/250x250"
-              data-demo-src="assets/img/avatars/elie.jpg"
-              alt=""
-            />
+            <img src={props.user.photoUrl} />
           </div>
           <div className="meta">
             <span>Checkout as</span>
-            <span id="checkout-username">Elie Daniels</span>
+            <span id="checkout-username">{`${props.user.firstName} ${props.user.lastName}`}</span>
           </div>
         </div>
 
@@ -71,13 +68,13 @@ const CheckoutSide = (props) => {
           <div className="payment-block">
             <span>Order subtotal</span>
             <span id="checkout-subtotal-value" className="has-price">
-              {props.totalAmount}
+              {props.total}
             </span>
           </div>
           <div className="payment-block">
             <span>Order shipping</span>
             <span id="checkout-shipping-value" className="has-price">
-              0.00
+              {props.shipping ? props.shipping.price : '0.00'}
             </span>
           </div>
           <div className="payment-block">
@@ -89,7 +86,7 @@ const CheckoutSide = (props) => {
           <div className="payment-block">
             <span className="is-bold">Order total</span>
             <span id="checkout-grandtotal-value" className="has-price is-bold">
-              {props.totalAmount + props.taxes}
+              {props.totalAmount}
             </span>
           </div>
         </div>
@@ -103,6 +100,15 @@ const CheckoutSide = (props) => {
               Next Step
             </Link>
           )}
+          {props.step == 'step2' && (
+            <button
+              disabled={!props.shipping}
+              onClick={() => props.history.push('/checkout/step3')}
+              className="button primary-button raised is-fullwidth is-rounded"
+            >
+              Next Step
+            </button>
+          )}
           {/* <button className="button primary-button raised is-fullwidth is-rounded">
             Next Step
           </button> */}
@@ -114,6 +120,8 @@ const CheckoutSide = (props) => {
 const mapStateToProps = createStructuredSelector({
   totalAmount: selectTotalAmount,
   taxes: selectTaxes,
+  total: selectTotal,
+  shipping: selectShippingMethod,
   user: selectCurrentUser,
 });
 export default connect(mapStateToProps)(withRouter(CheckoutSide));

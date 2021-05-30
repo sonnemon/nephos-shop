@@ -15,29 +15,13 @@ import { resetMenu } from '../redux/app/app.actions';
 import { connect } from 'react-redux';
 
 const AppLayout = ({ children, history, resetMenu, ...otherProps }) => {
-  const [isLoading, setIsLoading] = useState(true);
   const isMobile = useMediaQuery({ maxWidth: 767 });
   history.listen(() => {
     resetMenu(isMobile);
   });
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading((prev) => !prev);
-    }, 300);
-  }, []);
 
   return (
     <>
-      <div
-        className={classNames('pageloader is-full', {
-          'is-active': isLoading,
-        })}
-      />
-      <div
-        className={classNames('infraloader is-full', {
-          'is-active': isLoading,
-        })}
-      />
       {!history.location.pathname.includes('checkout') && <Navbar />}
       <MainSidebar isMobile={isMobile} />
       <QuickView />

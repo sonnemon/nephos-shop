@@ -29,10 +29,12 @@ const Router = (props) => {
       <Route path="/products" component={ProductCategory} exact />
       <Route path="/products/:category" component={ProductList} exact />
       <Route path="/product/:productId" component={ProductDetail} exact />
+
       <Route path="/checkout/step1" component={Step1Page} exact />
       <Route path="/checkout/step2" component={Step2Page} exact />
       <Route path="/checkout/step3" component={Step3Page} exact />
       <Route path="/checkout/step4" component={Step4Page} exact />
+
       <Route
         path="/authentication"
         exact

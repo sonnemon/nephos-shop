@@ -5,10 +5,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectIsOpenCartMenu } from '../../redux/app/app.selector';
 import { onToggleCartMenu } from '../../redux/app/app.actions';
-import {
-  selectCartItems,
-  selectTotalAmount,
-} from '../../redux/cart/cart.selectors';
+import { selectCartItems, selectTotal } from '../../redux/cart/cart.selectors';
 import {
   changeQuantityToCart,
   removeItemToCart,
@@ -30,7 +27,7 @@ const CartMenu = (props) => {
           </span>
         </div>
         <div className="cart-action">
-          <span className="cart-total">{props.totalAmount}</span>
+          <span className="cart-total">{props.total}</span>
           <Link
             to="/cart"
             className="button view-cart-button primary-button upper-button raised is-bold"
@@ -114,7 +111,7 @@ const CartMenu = (props) => {
 const mapStateToProps = createStructuredSelector({
   isOpen: selectIsOpenCartMenu,
   cartItems: selectCartItems,
-  totalAmount: selectTotalAmount,
+  total: selectTotal,
 });
 
 const mapDispatchToProps = (dispatch) => ({

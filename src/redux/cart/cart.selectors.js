@@ -12,4 +12,11 @@ export const selectTotalAmount = createSelector(
   (cart) => cart.totalAmount
 );
 
+export const selectTotal = createSelector([selectCart], (cart) => cart.total);
+
 export const selectTaxes = createSelector([selectCart], (cart) => cart.taxes);
+
+export const selectShippingMethod = createSelector(
+  [selectCart],
+  (cart) => cart.shipping
+);

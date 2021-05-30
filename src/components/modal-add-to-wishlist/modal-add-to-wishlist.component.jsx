@@ -16,9 +16,7 @@ const ModalAddToWishlist = (props) => {
   useEffect(() => {
     if (!props.wishList) {
       props.fetchWishes({
-        callback: () => {
-          setIsLoading(false);
-        },
+        callback: () => {},
       });
     }
   }, []);
